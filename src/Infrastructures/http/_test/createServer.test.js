@@ -565,14 +565,14 @@ describe("HTTP server", () => {
       // Arrange
       const server = await createServer({});
       // Action
-      const resopnse = await server.inject({
+      const response = await server.inject({
         method: "GET",
-        url: "/test-ci-cd",
+        url: "/test",
       });
       // Assert
-      const responseJson = JSON.parse(resopnse.payload);
+      const responseJson = JSON.parse(response.payload);
       expect(response.statusCode).toEqual(200);
-      expect(responseJson.value).toEqual("Success");
+      expect(responseJson.value).toEqual("success");
     });
   });
 });
