@@ -559,4 +559,20 @@ describe("HTTP server", () => {
       expect(responseJson.value).toEqual("Hello world!");
     });
   });
+
+  describe("when GET /test-ci-cd", () => {
+    it("should return 200 and hello world", async () => {
+      // Arrange
+      const server = await createServer({});
+      // Action
+      const resopnse = await server.inject({
+        method: "GET",
+        url: "/test-ci-cd",
+      });
+      // Assert
+      const responseJson = JSON.parse(resopnse.payload);
+      expect(response.statusCode).toEqual(200);
+      expect(responseJson.value).toEqual("Success");
+    });
+  });
 });
