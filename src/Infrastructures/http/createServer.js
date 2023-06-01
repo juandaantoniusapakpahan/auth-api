@@ -36,6 +36,13 @@ const createServer = async (container) => {
         value: "success",
       }),
     },
+    {
+      method: "GET",
+      path: "/test/ci",
+      handler: () => ({
+        value: "ci cd success",
+      }),
+    },
   ]);
 
   server.ext("onPreResponse", (request, h) => {
